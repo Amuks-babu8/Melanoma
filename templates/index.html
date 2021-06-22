@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Melanoma Center</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="description" content="Melanoma detection web app with tensorflow">
+    <link rel="stylesheet" href="{{url_for('static',filename='bootstrap.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='boxicons.css')}}">
+<link rel="stylesheet" href="{{url_for('static',filename='aos.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles.css')}}">
+
+</head>
+<body class="container bg-dark">
+
+ <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="container d-flex">
+
+      <div class="logo me-auto">
+        <h1 class="text-light text-success"><a href="{{ url_for('static',filename='index.html') }}"><span>Melanoma Center</span></a></h1>
+       </div>
+
+    </div>
+  </header><!-- End Header -->
+<section class="text-light" >
+    <p>
+        Melanoma is a type of cancer that affects the skin
+    </p>
+<div class="card bg-dark">
+    <h4>Predicted Status : {{ status }}</h4>
+    <br>
+    <h4>Prediction Accuracy: {{ accuracy }}%</h4>
+</div>
+</section>
+<main id="main">
+ <!-- ======= About Us Section ======= -->
+    <section id="about" class="about">
+      <div class="container bg-light-dark">
+
+        <div class="row bg-transparent no-gutters">
+          <div class="col-lg-6 video-box">
+            <img src="{{ url_for('static',filename='0.jpg')}}" class="img-fluid img-thumbnail" alt="">
+            </div>
+
+          <div class="col-lg-6 d-flex flex-column justify-content-center about-content">
+            <div class="section-title">
+              <h2 style="color: #020113;">About Us</h2>
+              <p>This is a web app that helps you check for melanoma with the click of a button
+                <br> Please note that this test is not 100% accurate and as such should be used alongside
+                  professional medical advice
+              </p>
+                <br>
+                <form method="post" class="form" action="http://127.0.0.1:5000/check" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <input type="file" name="skin" id="skin" class="form-control">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <button class="btn btn-success" type="submit">Check Now</button>
+                    </div>
+                </form>
+            </div>
+
+
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Us Section -->
+
+</main>
+<script src="{{ url_for('static', filename='jquery.min.js')}}"></script>
+<script src="{{ url_for('static', filename='bootstrap.bundle.min.js')}}"></script>
+<script src="{{ url_for('static', filename='aos.js')}}"></script>
+<!--script src="{{ url_for('static', filename='bootstrap.bundle.min.js')}}"></script-->
+
+</body>
+</html>
